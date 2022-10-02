@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_ui/widgets/info_item.dart';
+import 'package:instagram_ui/widgets/profile_picture.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -43,46 +45,32 @@ class ProfilePage extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          Row(
-            children: [
-              Stack(
-                alignment: Alignment.center,
-                children: [
-                  Container(
-                    width: 120,
-                    height: 120,
-                    decoration: BoxDecoration(
-                      color: Colors.grey[300],
-                      gradient: const LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: [
-                            Colors.red,
-                            Colors.amber,
-                          ]),
-                      borderRadius: BorderRadius.circular(60),
-                    ),
-                  ),
-                  Container(
-                    width: 110,
-                    height: 110,
-                    decoration: BoxDecoration(
-                      image: const DecorationImage(
-                        fit: BoxFit.cover,
-                        image: NetworkImage(
-                          'https://picsum.photos/536/354',
-                        ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
+            child: Row(
+              children: [
+                ProfilePicture(),
+                Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      InfoItem(
+                        title: '999',
+                        value: 'Post',
                       ),
-                      border: Border.all(
-                        color: Colors.white,
-                        width: 5,
+                      InfoItem(
+                        title: '999',
+                        value: 'Followers',
                       ),
-                      borderRadius: BorderRadius.circular(60),
-                    ),
+                      InfoItem(
+                        title: '999',
+                        value: 'Following',
+                      ),
+                    ],
                   ),
-                ],
-              ),
-            ],
+                )
+              ],
+            ),
           )
         ],
       ),
