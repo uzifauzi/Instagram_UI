@@ -55,23 +55,142 @@ class ProfilePage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       InfoItem(
-                        title: '999',
+                        title: '31',
                         value: 'Post',
                       ),
                       InfoItem(
-                        title: '999',
+                        title: '0102',
                         value: 'Followers',
                       ),
                       InfoItem(
-                        title: '999',
+                        title: '11',
                         value: 'Following',
                       ),
                     ],
                   ),
-                )
+                ),
               ],
             ),
-          )
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
+            child: Text(
+              'fxzi',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
+            child: Text(
+              'Developer',
+              style: TextStyle(
+                color: Colors.grey[400],
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
+            child: RichText(
+              text: TextSpan(
+                  text:
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sollicitudin mauris ut hendrerit aliquam.",
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
+                  children: [
+                    TextSpan(
+                      text: "Aenean sollicitudin mauris ut hendrerit aliquam.",
+                      style: TextStyle(
+                        color: Colors.black,
+                      ),
+                    ),
+                    TextSpan(
+                      text: "#GGMU",
+                      style: TextStyle(
+                        color: Colors.blue,
+                      ),
+                    ),
+                  ]),
+            ),
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
+            child: Text(
+              'bit.ly/fxzi.dev',
+              style: TextStyle(
+                color: Colors.blue[200],
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 5,
+          ),
+          Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15.0),
+              child: OutlinedButton(
+                onPressed: () {},
+                child: Text(
+                  'Edit Profile',
+                  style: TextStyle(
+                    color: Colors.black,
+                  ),
+                ),
+              )),
+          SizedBox(
+            height: 5,
+          ),
+          Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15.0),
+              child: Row(
+                children: [
+                  Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Container(
+                        width: 80,
+                        height: 80,
+                        decoration: BoxDecoration(
+                          color: Colors.grey[300],
+                          borderRadius: BorderRadius.circular(50),
+                        ),
+                      ),
+                      Container(
+                        width: 77,
+                        height: 77,
+                        decoration: BoxDecoration(
+                          color: Colors.grey[300],
+                          borderRadius: BorderRadius.circular(50),
+                          border: Border.all(
+                            color: Colors.white,
+                            width: 5,
+                          ),
+                          image: const DecorationImage(
+                            fit: BoxFit.cover,
+                            image: NetworkImage(
+                              'https://picsum.photos/536/354',
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              )),
         ],
       ),
     );
