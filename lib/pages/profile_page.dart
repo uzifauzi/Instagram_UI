@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:instagram_ui/widgets/higlight_story_item.dart';
 import 'package:instagram_ui/widgets/info_item.dart';
 import 'package:instagram_ui/widgets/profile_picture.dart';
+import 'package:instagram_ui/widgets/tab_item.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -155,42 +157,95 @@ class ProfilePage extends StatelessWidget {
             height: 5,
           ),
           Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15.0),
+            padding: const EdgeInsets.symmetric(horizontal: 15.0),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      Container(
-                        width: 80,
-                        height: 80,
-                        decoration: BoxDecoration(
-                          color: Colors.grey[300],
-                          borderRadius: BorderRadius.circular(50),
-                        ),
-                      ),
-                      Container(
-                        width: 77,
-                        height: 77,
-                        decoration: BoxDecoration(
-                          color: Colors.grey[300],
-                          borderRadius: BorderRadius.circular(50),
-                          border: Border.all(
-                            color: Colors.white,
-                            width: 5,
-                          ),
-                          image: const DecorationImage(
-                            fit: BoxFit.cover,
-                            image: NetworkImage(
-                              'https://picsum.photos/536/354',
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
+                  HiglightStoryItem(
+                    title: 'Story 1',
+                  ),
+                  HiglightStoryItem(
+                    title: 'Story 2',
+                  ),
+                  HiglightStoryItem(
+                    title: 'Story 3',
+                  ),
+                  HiglightStoryItem(
+                    title: 'Story 4',
+                  ),
+                  HiglightStoryItem(
+                    title: 'Story 5',
+                  ),
+                  HiglightStoryItem(
+                    title: 'Story 6',
                   ),
                 ],
-              )),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              TabItem(
+                active: true,
+                icon: Icons.grid_on,
+              ),
+              TabItem(
+                active: false,
+                icon: Icons.person_pin_circle,
+              ),
+            ],
+          ),
+          GridView.builder(
+            //supaya bisa dipakai didalam listview
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            itemCount: 50,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3,
+              mainAxisSpacing: 5,
+              crossAxisSpacing: 5,
+            ),
+            itemBuilder: (context, index) => Image.network(
+              'https://picsum.photos/536/354',
+              fit: BoxFit.cover,
+            ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 4,
+        selectedItemColor: Colors.black,
+        unselectedItemColor: Colors.grey,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.home,
+            ),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.search),
+            label: 'Search',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.video_collection_outlined),
+            label: 'Reels',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_bag_outlined),
+            label: 'Reels',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person),
+            label: 'Person',
+          ),
         ],
       ),
     );
